@@ -91,6 +91,7 @@ export default function LoginPage({ initialMode = "login" }: { initialMode?: Aut
 
   function changeMode(nextMode: AuthMode) {
     setMode(nextMode);
+    setShowPassword(false);
     setNotice("");
     setError("");
   }
@@ -177,9 +178,10 @@ export default function LoginPage({ initialMode = "login" }: { initialMode?: Aut
                   type="button"
                   className="password-visibility"
                   aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-pressed={showPassword}
                   onClick={() => setShowPassword((visible) => !visible)}
                 >
-                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
                 </button>
               </span>
             </label>
